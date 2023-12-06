@@ -1,5 +1,6 @@
 package com.manuel.view;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Shipment {
@@ -106,9 +107,11 @@ public class Shipment {
 
 	@Override
 	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
 		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
 				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
-				+ ", courier=" + courier + ", departureDate=" + departureDate + "]";
+				+ ", courier=" + courier + ", departureDate=" + formattedDate + "]";
 	}
 
 }
