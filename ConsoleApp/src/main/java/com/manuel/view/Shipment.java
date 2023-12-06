@@ -1,25 +1,27 @@
-package com.manuel.model;
+package com.manuel.view;
 
 import java.util.Date;
 
 public class Shipment {
 	
-	String sender;
-	String recipient;
-	String destination;
-	String departure;
-	String dimension;
-	int weight;
-	String courier;
-	Date departureDate;
+	private int nShipment;
+	private String sender;
+	private String recipient;
+	private String destination;
+	private String departure;
+	private String dimension;
+	private int weight;
+	private String courier;
+	private Date departureDate;
 	
 	public Shipment() {
 		super();
 	}
 
-	public Shipment(String sender, String recipient, String destination, String departure, String dimension, int weight,
-			String courier, Date departureDate) {
+	public Shipment(int nShipment, String sender, String recipient, String destination, String departure,
+			String dimension, int weight, String courier, Date departureDate) {
 		super();
+		this.nShipment = nShipment;
 		this.sender = sender;
 		this.recipient = recipient;
 		this.destination = destination;
@@ -28,6 +30,14 @@ public class Shipment {
 		this.weight = weight;
 		this.courier = courier;
 		this.departureDate = departureDate;
+	}
+
+	public int getnShipment() {
+		return nShipment;
+	}
+
+	public void setnShipment(int nShipment) {
+		this.nShipment = nShipment;
 	}
 
 	public String getSender() {
@@ -96,9 +106,9 @@ public class Shipment {
 
 	@Override
 	public String toString() {
-		return "Shipment [sender=" + sender + ", recipient=" + recipient + ", destination=" + destination
-				+ ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight + ", courier="
-				+ courier + ", departureDate=" + departureDate + "]";
-	}	
-	
+		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
+				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
+				+ ", courier=" + courier + ", departureDate=" + departureDate + "]";
+	}
+
 }
