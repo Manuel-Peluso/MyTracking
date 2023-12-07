@@ -1,4 +1,4 @@
-package main;
+package com.manuel.program;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,11 +13,36 @@ public class Main {
 	private static Scanner scanner = new Scanner(System.in);
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 	private static ShipmentRepository shipmentRepo = new ShipmentRepository();
+	private static boolean ripeti;
+	private static int scelta = 0;
 
 	public static void main(String[] args) {
 
-		addShipment();
-		getShipments();
+		try {
+			do {
+
+				scelta = menu();
+				{
+					switch (scelta) {
+					case 1:
+						addShipment();
+						ripeti = true;
+						break;
+					case 2:
+						getShipments();
+						ripeti = true;
+						break;
+					case 3:
+						System.out.println("Arrivederci");
+						ripeti = false;
+						break;
+					}
+				}
+
+			} while (ripeti);
+		} finally {
+			scanner.close();
+		}
 
 	}
 
@@ -61,8 +86,6 @@ public class Main {
 			System.out.println("Spedizione aggiunta!");
 		} catch (ParseException e) {
 			e.printStackTrace();
-		} finally {
-			scanner.close();
 		}
 
 	}
@@ -71,4 +94,24 @@ public class Main {
 		System.out.println("Lista spedizioni: \n" + shipmentRepo.getShipments());
 	}
 
+	public static int chiose(String s) {
+		int n = 0;
+		boolean flag;
+		do {
+			flag = false;
+			try {
+				n = Integer.parseInt(scanner.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println(e);
+				flag = true;
+			}
+		} while (flag);
+		return n;
+	}
+
+	public static int menu() {
+
+		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Esci");
+		return (chiose("Scegli:"));
+	}
 }
