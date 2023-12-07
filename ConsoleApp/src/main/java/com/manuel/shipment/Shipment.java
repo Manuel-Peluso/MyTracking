@@ -1,4 +1,4 @@
-package com.manuel.view;
+package com.manuel.shipment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
