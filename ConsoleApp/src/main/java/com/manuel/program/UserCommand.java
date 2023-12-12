@@ -32,7 +32,7 @@ public class UserCommand {
 	}
 
 	public int menu() {
-		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Esci");
+		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n0- Esci");
 		return (chiose("Scegli:"));
 	}
 
@@ -69,6 +69,9 @@ public class UserCommand {
 		String departureDate = scanner.nextLine();
 		Date parsedDate = sdf.parse(departureDate);
 		s.setDepartureDate(parsedDate);
+		
+		System.out.println("Inserisci lo stato:");
+		s.setState(scanner.nextLine());
 		
 		return s;
 	}	

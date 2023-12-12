@@ -11,6 +11,10 @@ public class ShipmentRepository {
 		listShipment.add(shipment);
 	}
 	
+	public void removeShipment(Shipment shipment) {
+		listShipment.remove(shipment);
+	}
+	
 	public List<Shipment> getShipments() {
 		return listShipment;
 	}

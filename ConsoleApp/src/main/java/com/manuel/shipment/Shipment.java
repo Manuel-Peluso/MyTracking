@@ -14,13 +14,14 @@ public class Shipment {
 	private int weight;
 	private String courier;
 	private Date departureDate;
+	private String state;
 	
 	public Shipment() {
 		super();
 	}
 
 	public Shipment(int nShipment, String sender, String recipient, String destination, String departure,
-			String dimension, int weight, String courier, Date departureDate) {
+			String dimension, int weight, String courier, Date departureDate, String state) {
 		super();
 		this.nShipment = nShipment;
 		this.sender = sender;
@@ -31,6 +32,7 @@ public class Shipment {
 		this.weight = weight;
 		this.courier = courier;
 		this.departureDate = departureDate;
+		this.state = state;
 	}
 
 	public int getnShipment() {
@@ -105,13 +107,21 @@ public class Shipment {
 		this.departureDate = departureDate;
 	}
 
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
 		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
 				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
-				+ ", courier=" + courier + ", departureDate=" + formattedDate + "]";
+				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + state + "]";
 	}
 
 }
