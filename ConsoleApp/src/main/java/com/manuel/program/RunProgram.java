@@ -1,6 +1,7 @@
 package com.manuel.program;
 
 import java.text.ParseException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.manuel.shipment.Shipment;
@@ -65,17 +66,26 @@ public class RunProgram {
 	}
 
 	public void removeShipment() {
+		boolean shipmentFound = false;
+		Iterator<Shipment> iterator = shipmentRepo.getShipments().iterator();
+
 		System.out.println("Inserisci il numero della spedizione da rimuovere:");
 		int shippingNumber = scanner.nextInt();
 		scanner.nextLine();
-		for (Shipment shipment : shipmentRepo.getShipments()) {
+
+		while (iterator.hasNext()) {
+			Shipment shipment = iterator.next();
+
 			if (shipment.getnShipment() == shippingNumber) {
-				shipmentRepo.removeShipment(shipment);
-				System.out.println("Spedizione rimossa!");
-			} else {
-				System.out.println("Spedizione non trovata!");
+				iterator.remove();
+				shipmentFound = true;
+				System.out.println("Spedizione rimossa correttamente!");
 			}
 		}
+		if (!shipmentFound) {
+			System.out.println("Spedizione non trovata!");
+		}
+
 	}
 
 	public void getShipments() {

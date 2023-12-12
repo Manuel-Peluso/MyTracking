@@ -121,7 +121,7 @@ public class Shipment {
         String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
 		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
 				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
-				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + state + "]";
+				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + state + "]\n";
 	}
 
 }
