@@ -12,11 +12,11 @@ public class UserCommand {
 	private Scanner scanner = new Scanner(System.in);
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-    public UserCommand(Scanner scanner) {
-        this.scanner = scanner;
-    }
+	public UserCommand(Scanner scanner) {
+		this.scanner = scanner;
+	}
 
-    private int chiose(String s) {
+	private int chiose(String s) {
 		int n = 0;
 		boolean flag;
 		do {
@@ -32,11 +32,12 @@ public class UserCommand {
 	}
 
 	public int menu() {
-		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n0- Esci");
+		System.out
+				.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n0- Esci");
 		return (chiose("Scegli:"));
 	}
 
-    public Shipment createShipmentFromUser() throws ParseException {
+	public Shipment createShipmentFromUser() throws ParseException {
 		Shipment s = new Shipment();
 
 		System.out.println("Inserisci il numero di spedizione:");
@@ -69,13 +70,13 @@ public class UserCommand {
 		String departureDate = scanner.nextLine();
 		Date parsedDate = sdf.parse(departureDate);
 		s.setDepartureDate(parsedDate);
-		
+
 		System.out.println("Inserisci lo stato:");
 		s.setState(scanner.nextLine());
-		
+
 		return s;
-	}	
-	
+	}
+
 	public void printShipments(List<Shipment> shipments) {
 		System.out.println("Lista spedizioni: \n" + shipments);
 	}

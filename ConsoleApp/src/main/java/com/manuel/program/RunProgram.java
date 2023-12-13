@@ -77,9 +77,10 @@ public class RunProgram {
 			Shipment shipment = iterator.next();
 
 			if (shipment.getnShipment() == shippingNumber) {
-				iterator.remove();
+				shipmentRepo.removeShipment(shipment);
 				shipmentFound = true;
 				System.out.println("Spedizione rimossa correttamente!");
+				break;
 			}
 		}
 		if (!shipmentFound) {

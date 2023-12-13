@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Shipment {
-	
+
 	private int nShipment;
 	private String sender;
 	private String recipient;
@@ -15,7 +15,7 @@ public class Shipment {
 	private String courier;
 	private Date departureDate;
 	private String state;
-	
+
 	public Shipment() {
 		super();
 	}
@@ -118,7 +118,7 @@ public class Shipment {
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
+		String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
 		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
 				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
 				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + state + "]\n";
