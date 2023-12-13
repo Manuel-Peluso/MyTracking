@@ -77,6 +77,13 @@ public class UserCommand {
 		return s;
 	}
 
+	public int searchShipmentFromUser() {
+		System.out.println("Inserisci il numero della spedizione da rimuovere:");
+		int shippingNumber = scanner.nextInt();
+		scanner.nextLine();
+		return shippingNumber;
+	}
+
 	public void printShipments(List<Shipment> shipments) {
 		System.out.println("Lista spedizioni: \n" + shipments);
 	}
