@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.manuel.shipment.Shipment;
+import com.manuel.shipment.State;
 
 public class UserCommand {
 	private Scanner scanner = new Scanner(System.in);
@@ -71,8 +72,7 @@ public class UserCommand {
 		Date parsedDate = sdf.parse(departureDate);
 		s.setDepartureDate(parsedDate);
 
-		System.out.println("Inserisci lo stato:");
-		s.setState(scanner.nextLine());
+		s.setState(State.PRESA_IN_CARICO);
 
 		return s;
 	}

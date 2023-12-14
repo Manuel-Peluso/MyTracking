@@ -14,14 +14,14 @@ public class Shipment {
 	private int weight;
 	private String courier;
 	private Date departureDate;
-	private String state;
+	private State state;
 
 	public Shipment() {
 		super();
 	}
 
 	public Shipment(int nShipment, String sender, String recipient, String destination, String departure,
-			String dimension, int weight, String courier, Date departureDate, String state) {
+			String dimension, int weight, String courier, Date departureDate, State state) {
 		super();
 		this.nShipment = nShipment;
 		this.sender = sender;
@@ -107,11 +107,11 @@ public class Shipment {
 		this.departureDate = departureDate;
 	}
 
-	public String getState() {
+	public State getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(State state) {
 		this.state = state;
 	}
 
