@@ -35,6 +35,10 @@ public class RunProgram {
 						removeShipment();
 						ripeti = true;
 						break;
+					case 4:
+						changeState();
+						ripeti = true;
+						break;
 					case 0:
 						System.out.println("Arrivederci");
 						ripeti = false;
@@ -75,9 +79,22 @@ public class RunProgram {
 		if (isRemoved) {
 			System.out.println("Spedizione rimossa correttamente!");
 		} else {
-			System.out.println("Spedizione o non trovata.");
+			System.out.println("Spedizione non trovata.");
 		}
 
+	}
+	
+	public void changeState() {
+		int shippingNumber = uCommand.searchShipmentFromUser();
+		
+		boolean isChanged = shipmentRepo.editShipment(shippingNumber);
+		
+		if (isChanged) {
+			System.out.println("Stato aggiornato correttamente!");
+		} else {
+			System.out.println("Spdizione non trovata.");
+		}
+		
 	}
 
 	public void getShipments() {

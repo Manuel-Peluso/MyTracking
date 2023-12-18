@@ -33,8 +33,7 @@ public class UserCommand {
 	}
 
 	public int menu() {
-		System.out
-				.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n0- Esci");
+		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n4- Cambia stato spedizione \n0- Esci");
 		return (chiose("Scegli:"));
 	}
 
@@ -78,7 +77,7 @@ public class UserCommand {
 	}
 
 	public int searchShipmentFromUser() {
-		System.out.println("Inserisci il numero della spedizione da rimuovere:");
+		System.out.println("Inserisci il numero della spedizione da cercare:");
 		int shippingNumber = scanner.nextInt();
 		scanner.nextLine();
 		return shippingNumber;
