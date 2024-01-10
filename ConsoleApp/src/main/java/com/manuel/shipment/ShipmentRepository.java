@@ -13,22 +13,14 @@ public class ShipmentRepository {
 	}
 
 	public boolean removeShipment(int shippingNumber) {
-		boolean shipmentFound = false;
-		Iterator<Shipment> iterator = getShipments().iterator();
+		Shipment shipment = getShipments().stream()
+			.filter(s -> s.getnShipment() == shippingNumber)
+			.findFirst()
+			.orElse(null);
 
-		while (iterator.hasNext()) {
-			Shipment shipment = iterator.next();
+		listShipment.remove(shipment);
 
-			if (shipment.getnShipment() == shippingNumber) {
-				shipmentFound = true;
-				listShipment.remove(shipment);
-				break;
-			}
-		}
-		if (!shipmentFound) {
-			shipmentFound = false;
-		}
-		return shipmentFound;
+		return shipment != null;
 	}
 	
 	public boolean editShipment(int shippingNumber) {
