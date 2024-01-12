@@ -36,9 +36,7 @@ public class ShipmentRepository {
                 if (stateList == null || stateList.isEmpty()) {
                     // Se la lista degli stati è vuota, imposta lo stato iniziale a "PRESA_IN_CARICO"
                     ShipmentStates initialState = new ShipmentStates(State.PRESA_IN_CARICO, LocalDate.now(), "Luogo Iniziale");
-                    // Creo un nuovo array per evitare di generare NullPointerException
-                    stateList = new ArrayList<>();
-                    stateList.add(initialState);
+                   shipment.addState(initialState);
                 } else {
                     // Altrimenti, attraversa la lista e passa allo stato successivo solo se non è già "CONSEGNATO"
                     ShipmentStates currentState = stateList.get(stateList.size() - 1);
