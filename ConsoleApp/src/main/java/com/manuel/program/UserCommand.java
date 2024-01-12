@@ -2,12 +2,13 @@ package com.manuel.program;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 import com.manuel.shipment.Shipment;
-import com.manuel.shipment.State;
+import com.manuel.shipment.ShipmentStates;
 
 public class UserCommand {
 	private Scanner scanner = new Scanner(System.in);
@@ -70,8 +71,8 @@ public class UserCommand {
 		String departureDate = scanner.nextLine();
 		Date parsedDate = sdf.parse(departureDate);
 		s.setDepartureDate(parsedDate);
-
-		s.setState(State.PRESA_IN_CARICO);
+		
+		s.setStateList(new ArrayList<ShipmentStates>());
 
 		return s;
 	}

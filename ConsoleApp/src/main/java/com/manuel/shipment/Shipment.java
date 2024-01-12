@@ -1,7 +1,9 @@
 package com.manuel.shipment;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Shipment {
 
@@ -14,14 +16,14 @@ public class Shipment {
 	private int weight;
 	private String courier;
 	private Date departureDate;
-	private State state;
+	private List<ShipmentStates> stateList;
 
 	public Shipment() {
 		super();
 	}
 
 	public Shipment(int nShipment, String sender, String recipient, String destination, String departure,
-			String dimension, int weight, String courier, Date departureDate, State state) {
+			String dimension, int weight, String courier, Date departureDate, List<ShipmentStates> stateList) {
 		super();
 		this.nShipment = nShipment;
 		this.sender = sender;
@@ -32,7 +34,7 @@ public class Shipment {
 		this.weight = weight;
 		this.courier = courier;
 		this.departureDate = departureDate;
-		this.state = state;
+		this.stateList = new ArrayList<ShipmentStates>();
 	}
 
 	public int getnShipment() {
@@ -107,12 +109,16 @@ public class Shipment {
 		this.departureDate = departureDate;
 	}
 
-	public State getState() {
-		return state;
+	public List<ShipmentStates> getStateList() {
+		return stateList;
 	}
 
-	public void setState(State state) {
-		this.state = state;
+	public void setStateList(List<ShipmentStates> stateList) {
+		this.stateList = stateList;
+	}
+
+	public void addState(ShipmentStates state) {
+		stateList.add(state);
 	}
 
 	@Override
@@ -121,7 +127,7 @@ public class Shipment {
 		String formattedDate = (departureDate != null) ? sdf.format(departureDate) : "";
 		return "Shipment [nShipment=" + nShipment + ", sender=" + sender + ", recipient=" + recipient + ", destination="
 				+ destination + ", departure=" + departure + ", dimension=" + dimension + ", weight=" + weight
-				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + state + "]\n";
+				+ ", courier=" + courier + ", departureDate=" + formattedDate + ", state=" + stateList + "]\n";
 	}
 
 }

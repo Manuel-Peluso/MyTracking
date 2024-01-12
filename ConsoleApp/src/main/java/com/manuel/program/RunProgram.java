@@ -87,7 +87,7 @@ public class RunProgram {
 	public void changeState() {
 		int shippingNumber = uCommand.searchShipmentFromUser();
 		
-		boolean isChanged = shipmentRepo.editShipment(shippingNumber);
+		boolean isChanged = shipmentRepo.updateState(shippingNumber);
 		
 		if (isChanged) {
 			System.out.println("Stato aggiornato correttamente!");
