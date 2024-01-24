@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 import com.manuel.shipment.Shipment;
 import com.manuel.shipment.ShipmentRepository;
+import com.manuel.shipment.ShipmentStateUpdateService;
 
 public class RunProgram {
 	private UserCommand uCommand;
 	private ShipmentRepository shipmentRepo = new ShipmentRepository();
+	private ShipmentStateUpdateService shipmentStateUpdateService = new ShipmentStateUpdateService(shipmentRepo);
 	private Scanner scanner = new Scanner(System.in);
 
 	public void run() {
@@ -87,7 +89,7 @@ public class RunProgram {
 	public void changeState() {
 		int shippingNumber = uCommand.searchShipmentFromUser();
 		
-		boolean isChanged = shipmentRepo.updateState(shippingNumber);
+		boolean isChanged = shipmentStateUpdateService.updateState(shippingNumber);
 		
 		if (isChanged) {
 			System.out.println("Stato aggiornato correttamente!");
