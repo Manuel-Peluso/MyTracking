@@ -2,9 +2,9 @@ package com.manuel.courier;
 
 public class Courier {
 	
-	int id;
-	String nome;
-	String url;
+	private int id;
+	private String nome;
+	private String url;
 	
 	public Courier() {
 		super();
