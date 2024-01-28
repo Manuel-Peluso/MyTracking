@@ -38,7 +38,7 @@ public class Courier {
 
 	@Override
 	public String toString() {
-		return "Courier [id=" + id + ", nome=" + nome + ", url=" + url + "]";
+		return "Courier [id=" + id + ", nome=" + nome + ", url=" + url + "]\n";
 	}
 	
 
