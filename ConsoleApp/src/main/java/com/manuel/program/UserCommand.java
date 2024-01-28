@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.manuel.courier.Courier;
 import com.manuel.shipment.Shipment;
 import com.manuel.shipment.ShipmentStates;
 
@@ -34,7 +35,7 @@ public class UserCommand {
 	}
 
 	public int menu() {
-		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n4- Cambia stato spedizione \n0- Esci");
+		System.out.println("***MENU***\n1- Aggiungi spedizione \n2- Lista spedizioni \n3- Rimuovi spedizione \n4- Cambia stato spedizione \n5- Aggiungi corriere \n6- Rimuovi corriere \n7- Lista corrieri \n0- Esci");
 		return (chiose("Scegli:"));
 	}
 
@@ -87,4 +88,32 @@ public class UserCommand {
 	public void printShipments(List<Shipment> shipments) {
 		System.out.println("Lista spedizioni: \n" + shipments);
 	}
+	
+	public Courier createCourierFromUser() {
+		Courier c = new Courier();
+		
+		System.out.println("Inserisci l'id del corriere:");
+		c.setId(scanner.nextInt());
+		scanner.nextLine();
+
+		System.out.println("Inserisci il nome del corriere:");
+		c.setNome(scanner.nextLine());
+
+		System.out.println("Inserisci l'url del sito del corriere:");
+		c.setUrl(scanner.nextLine());
+		
+		return c;
+	}
+
+	public int searchCourierFromUser() {
+		System.out.println("Inserisci l'id del corriere da cercare:");
+		int idCourier = scanner.nextInt();
+		scanner.nextLine();
+		return idCourier;
+	}
+
+	public void printCouriers(List<Courier> couriers) {
+		System.out.println("Lista corrieri: \n" + couriers);
+	}
+	
 }
