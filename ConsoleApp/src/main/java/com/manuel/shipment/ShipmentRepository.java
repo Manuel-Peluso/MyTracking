@@ -13,8 +13,8 @@ public class ShipmentRepository {
 
 	public boolean removeShipment(int shippingNumber) {
 		
-		listShipment.remove(getShipmentbyNumber(shippingNumber));
-		return getShipmentbyNumber(shippingNumber) != null;
+		return listShipment.remove(getShipmentbyNumber(shippingNumber));
+
 	}
 	
 	/*

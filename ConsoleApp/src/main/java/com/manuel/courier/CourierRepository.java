@@ -16,8 +16,8 @@ public class CourierRepository {
 	}
 	
 	public boolean removeCourier(int id) {
-		listCourier.remove(getCourierById(id));
-		return getCourierById(id) != null;
+		
+		return listCourier.remove(getCourierById(id));
 	}
 
 	public Courier getCourierById(int id) {
