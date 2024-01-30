@@ -8,15 +8,18 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.manuel.courier.Courier;
+import com.manuel.courier.CourierRepository;
 import com.manuel.shipment.Shipment;
 import com.manuel.shipment.ShipmentStates;
 
 public class UserCommand {
 	private Scanner scanner = new Scanner(System.in);
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+	private CourierRepository courierRepo;
 
-	public UserCommand(Scanner scanner) {
+	public UserCommand(Scanner scanner, CourierRepository courierRepo) {
 		this.scanner = scanner;
+		this.courierRepo = courierRepo;
 	}
 
 	private int chiose(String s) {
@@ -65,8 +68,10 @@ public class UserCommand {
 		s.setWeight(scanner.nextInt());
 		scanner.nextLine();
 
-		System.out.println("Inserisci il corriere:");
-		s.setCourier(scanner.nextLine());
+		System.out.println("Inserisci l'id del corriere:");
+		printCouriers(courierRepo.getCouriers());		
+		s.setCourier(courierRepo.getCourierById(scanner.nextInt()));
+		scanner.nextLine();
 
 		System.out.println("Inserisci la data di spedizione (formato dd-MM-yyyy):");
 		String departureDate = scanner.nextLine();

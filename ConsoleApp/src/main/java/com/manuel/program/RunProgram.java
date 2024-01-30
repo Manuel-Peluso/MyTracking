@@ -20,7 +20,7 @@ public class RunProgram {
 		boolean ripeti = false;
 		int scelta = 0;
 		// Esecuzione programma
-		uCommand = new UserCommand(scanner);
+		uCommand = new UserCommand(scanner, courierRepo);
 
 		try {
 			do {
@@ -85,6 +85,7 @@ public class RunProgram {
 
 	}
 
+	//Da sistemare OUTPUT
 	public void removeShipment() {
 
 		// Richiesta Utente
@@ -128,6 +129,7 @@ public class RunProgram {
 
 	}
 
+	//Da sistemare OUTPUT
 	public void removeCourier() {
 		
 		int idCourier = uCommand.searchCourierFromUser();

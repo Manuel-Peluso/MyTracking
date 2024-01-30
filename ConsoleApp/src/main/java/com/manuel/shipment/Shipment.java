@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.manuel.courier.Courier;
+
 public class Shipment {
 
 	private int nShipment;
@@ -14,7 +16,7 @@ public class Shipment {
 	private String departure;
 	private String dimension;
 	private int weight;
-	private String courier;
+	private Courier courier;
 	private Date departureDate;
 	private List<ShipmentStates> stateList;
 
@@ -23,7 +25,7 @@ public class Shipment {
 	}
 
 	public Shipment(int nShipment, String sender, String recipient, String destination, String departure,
-			String dimension, int weight, String courier, Date departureDate, List<ShipmentStates> stateList) {
+			String dimension, int weight, Courier courier, Date departureDate, List<ShipmentStates> stateList) {
 		super();
 		this.nShipment = nShipment;
 		this.sender = sender;
@@ -93,11 +95,11 @@ public class Shipment {
 		this.weight = weight;
 	}
 
-	public String getCourier() {
+	public Courier getCourier() {
 		return courier;
 	}
 
-	public void setCourier(String courier) {
+	public void setCourier(Courier courier) {
 		this.courier = courier;
 	}
 
